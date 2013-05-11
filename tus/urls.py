@@ -1,17 +1,8 @@
+# -*- coding: utf-8 -*-
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+from tus.views import FileUploadView, home
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'tus_python_server.views.home', name='home'),
-    # url(r'^tus_python_server/', include('tus_python_server.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', home,  name='home'),
+    url(r'^files/(?P<filename>[a-zA-Z0-9]+)/$', FileUploadView.as_view(), name='file-upload'),
 )
