@@ -28,7 +28,7 @@
                     console.log('selected file', file);
                     $('.js-stop').removeClass('disabled');
                     var options = {
-                        endpoint: 'http://master.tus.io/files/',
+                        endpoint: '{% url 'files-root' %}',
                         resetBefore: $('#reset_before').prop('checked'),
                         resetAfter: false
                     };
@@ -58,7 +58,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>Resumable file upload</h1>
+            <h1>File </h1>
 
             <input type="file"><br/>
             <label for="reset_before">
